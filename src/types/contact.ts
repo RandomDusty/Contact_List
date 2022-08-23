@@ -17,28 +17,28 @@ export enum ContactActionType {
     SEARCH_CONTACTS = 'SEARCH_CONTACTS'
 }
 
-interface FETCH_CONTACTS  {
-    type:ContactActionType.FETCH_CONTACTS,
+interface FETCH_CONTACTS {
+    type: ContactActionType.FETCH_CONTACTS,
     payload: IContact[]
 }
 
-interface ADD_CONTACT  {
-    type:ContactActionType.ADD_CONTACT,
+interface ADD_CONTACT {
+    type: ContactActionType.ADD_CONTACT,
     payload: IContact
 }
 
-interface DELETE_CONTACT  {
-    type:ContactActionType.DELETE_CONTACT,
+interface DELETE_CONTACT {
+    type: ContactActionType.DELETE_CONTACT,
     payload: string
 }
 
 interface UPDATE_CONTACT {
-    type:ContactActionType.UPDATE_CONTACT,
+    type: ContactActionType.UPDATE_CONTACT,
     payload: IContact
 }
 
 interface SEARCH_CONTACTS {
-    type:ContactActionType.SEARCH_CONTACTS,
+    type: ContactActionType.SEARCH_CONTACTS,
     payload: IContact[]
 }
 

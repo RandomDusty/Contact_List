@@ -14,7 +14,12 @@ const Contacts = () => {
     const theme = createTheme({
         palette: {
             primary: {
-                main: red[500]
+                main: red[500],
+                contrastText: '#fff'
+            },
+            secondary: {
+                main: '#ff7f50',
+                contrastText: '#fff'
             }
         },
     });
@@ -87,46 +92,50 @@ const Contacts = () => {
         <div className='App'>
             <ThemeProvider theme={theme}>
                 <Button variant="contained" onClick={exit} sx={{position: 'absolute', right: 5, top: 5}}>Exit</Button>
-            </ThemeProvider>
-            <div className='contactsBody'>
-                <div className='contactsTop'>
 
-                    <Box sx={{display: 'flex', flexDirection: 'row'}}>
+                <div className='contactsBody'>
+                    <div className='contactsTop'>
+
+                        <Box sx={{display: 'flex', flexDirection: 'row'}}>
+                            <OutlinedInput
+                                placeholder="search by firstname"
+                                value={searchInput}
+                                onChange={e => setSearchInput(e.target.value)}
+                            />
+                            <IconButton onClick={search}>
+                                {
+                                    isSearch ? <ClearIcon/> : <SearchIcon/>
+                                }
+                            </IconButton>
+                        </Box>
+                        <Button color="secondary" variant="contained" onClick={() => setActive(true)}>Add
+                            contact</Button>
+                    </div>
+                    <ContactList contacts={contacts}/>
+                    <Modal active={active}>
                         <OutlinedInput
-                            placeholder="search by firstname"
-                            value={searchInput}
-                            onChange={e => setSearchInput(e.target.value)}
+                            placeholder="Firstname"
+                            sx={{width: '500px', mb: '15px'}}
+                            value={firstNameInput}
+                            onChange={(e) => setFirstInput(e.target.value)}
                         />
-                        <IconButton onClick={search}>
-                            {
-                                isSearch ? <ClearIcon/> : <SearchIcon/>
-                            }
-                        </IconButton>
-                    </Box>
-                    <Button variant="contained" onClick={() => setActive(true)}>Add contact</Button>
+                        <OutlinedInput
+                            placeholder="Lastname"
+                            sx={{width: '500px', mb: '15px'}}
+                            value={lastNameInput}
+                            onChange={(e) => setLastInput(e.target.value)}
+                        />
+                        {updateID
+                            ?
+                            <Button color="secondary" variant="contained" sx={{width: '80px'}}
+                                    onClick={updateValidContact}>Update</Button>
+                            :
+                            <Button color="secondary" variant="contained" sx={{width: '80px'}}
+                                    onClick={addValidContact}>Add</Button>
+                        }
+                    </Modal>
                 </div>
-                <ContactList contacts={contacts}/>
-                <Modal active={active}>
-                    <OutlinedInput
-                        placeholder="Firstname"
-                        sx={{width: '500px', mb: '15px'}}
-                        value={firstNameInput}
-                        onChange={(e) => setFirstInput(e.target.value)}
-                    />
-                    <OutlinedInput
-                        placeholder="Lastname"
-                        sx={{width: '500px', mb: '15px'}}
-                        value={lastNameInput}
-                        onChange={(e) => setLastInput(e.target.value)}
-                    />
-                    {updateID
-                        ?
-                        <Button variant="contained" sx={{width: '80px'}} onClick={updateValidContact}>Update</Button>
-                        :
-                        <Button variant="contained" sx={{width: '80px'}} onClick={addValidContact}>Add</Button>
-                    }
-                </Modal>
-            </div>
+            </ThemeProvider>
         </div>
     );
 };

@@ -7,7 +7,7 @@ interface ModalProps {
 }
 
 
-const Modal: React.FC<PropsWithChildren<ModalProps>> = ({children,active}) => {
+const Modal: React.FC<PropsWithChildren<ModalProps>> = ({children, active}) => {
     const {setActive, setUpdateID, setFirstInput, setLastInput} = useAction()
 
     const hideModal = () => {
@@ -18,7 +18,7 @@ const Modal: React.FC<PropsWithChildren<ModalProps>> = ({children,active}) => {
     }
 
     return (
-        <div className={active?'modal active':'modal'} onClick={hideModal}>
+        <div className={active ? 'modal active' : 'modal'} onClick={hideModal}>
             <div className="modal__content" onClick={e => e.stopPropagation()}>
                 {children}
             </div>
