@@ -1,0 +1,26 @@
+{
+  "contacts": [
+    {
+      "id": "9d6ee6bc-a05b-4c04-85db-fd33f1701093",
+      "firstname": "Sergey",
+      "lastname": "Alferov"
+    },
+    {
+      "id": "490481e5-cd08-4e21-9800-647743b12874",
+      "firstname": "Victor",
+      "lastname": "Valdez"
+    },
+    {
+      "id": "a479bc82-c5cc-46d6-9330-74977ec092f9",
+      "firstname": "John",
+      "lastname": "Doe"
+    }
+  ],
+  "users": [
+    {
+      "id": "0",
+      "login": "test",
+      "password": "123"
+    }
+  ]
+}
